@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Admin Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <style>
+      /* Custom styles */
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 250px;
+        background-color: #343a40;
+        padding-top: 15px;
+        color: #fff;
+      }
+      .main-content {
+        margin-left: 250px;
+        padding: 20px;
+      }
+      .sidebar-heading {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        padding-left: 15px;
+      }
+      .sidebar-item {
+        padding: 10px 15px;
+      }
+      .sidebar-item a {
+        color: #fff;
+        text-decoration: none;
+        display: block;
+      }
+      .sidebar-item a:hover {
+        text-decoration: underline;
+      }
+      .table th,
+      .table td {
+        vertical-align: middle;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h4 class="sidebar-heading">Tiket Kita</h4>
+      <div class="sidebar-item">
+        <a href="/admin/dashboard">Booked Tickets</a>
+      </div>
+      <div class="sidebar-item">
+        <a href="/admin/ticket-stocks">Ticket Stocks</a>
+      </div>
+      <div class="sidebar-item">
+        <a href="/admin/settings">Settings</a>
+      </div>
+      <div class="sidebar-item">
+        <a href="/logout">Logout</a>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="main-content">
+      <h2 class="mb-4">Admin Dashboard</h2>
+
+      <!-- Ticket Stocks -->
+      <!-- <div class="card mb-4">
+            <div class="card-header">
+                <h4 class="card-title">Ticket Stocks</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Event</th>
+                                <th>Stock</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{range .TicketStocks}}
+                            <tr>
+                                <td>{{.Event}}</td>
+                                <td>{{.Stock}}</td>
+                            </tr>
+                            {{end}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div> -->
+
+      <!-- Booked Tickets -->
+      <div class="card mb-4">
+        <div class="card-header">
+          <h4 class="card-title">Booked Tickets</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Event</th>
+                  <th>Quantity</th>
+                  <th>Total Price</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{range .Tickets}}
+                <tr>
+                  <td>{{.ID}}</td>
+                  <td>{{.Name}}</td>
+                  <td>{{.Email}}</td>
+                  <td>{{.Event}}</td>
+                  <td>{{.Quantity}}</td>
+                  <td>{{.TotalPrice | printf "Rp %.2f"}}</td>
+                  <td>
+                    <a
+                      href="/admin/update/{{.ID}}"
+                      class="btn btn-sm btn-warning"
+                      >Edit</a
+                    >
+                    <form action="/admin/delete/{{.ID}}" method="post" style="display:inline;">
+                      <input type="hidden" name="_method" value="DELETE">
+                      <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                    </form>
+                  </td>
+                </tr>
+                {{end}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Create New Ticket Button -->
+      <a href="/form.html" class="btn btn-primary">Create New Ticket</a>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
