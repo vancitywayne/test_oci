@@ -148,7 +148,7 @@ func DeleteTicketHandler(w http.ResponseWriter, r *http.Request) {
             return
         }
 
-        http.Redirect(w, r, "/admin/dashboard", http.StatusSeeOther)
+        http.Redirect(w, r, "/hudza/admin/dashboard", http.StatusSeeOther)
     } else {
         http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
     }
