@@ -82,7 +82,7 @@ func CreateTicketHandler(w http.ResponseWriter, r *http.Request) {
             http.Error(w, "Unable to create ticket", http.StatusInternalServerError)
             return
         }
-        http.Redirect(w, r, "/admin/dashboard", http.StatusSeeOther)
+        http.Redirect(w, r, "/hudza/admin/dashboard", http.StatusSeeOther)
     } else {
         templates.ExecuteTemplate(w, "create.html", nil)
     }
@@ -124,7 +124,7 @@ func UpdateTicketHandler(w http.ResponseWriter, r *http.Request) {
             http.Error(w, "Unable to update ticket", http.StatusInternalServerError)
             return
         }
-        http.Redirect(w, r, "/admin/dashboard", http.StatusSeeOther)
+        http.Redirect(w, r, "/hudza/admin/dashboard", http.StatusSeeOther)
     } else {
         ticket, err := models.GetTicketByID(id)
         if err != nil {

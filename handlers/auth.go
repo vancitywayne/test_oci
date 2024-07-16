@@ -24,7 +24,7 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
         session.Values["authenticated"] = true
         session.Save(r, w)
 
-        http.Redirect(w, r, "/admin/dashboard", http.StatusSeeOther)
+        http.Redirect(w, r, "/hudza/admin/dashboard", http.StatusSeeOther)
     } else {
         http.ServeFile(w, r, "templates/index.html")
     }

@@ -54,10 +54,10 @@
     <div class="sidebar">
       <h4 class="sidebar-heading">Tiket Kita</h4>
       <div class="sidebar-item">
-        <a href="/admin/dashboard">Booked Tickets</a>
+        <a href="/hudza/admin/dashboard">Booked Tickets</a>
       </div>
       <div class="sidebar-item">
-        <a href="/admin/ticket-stocks">Ticket Stocks</a>
+        <a href="/hudza/admin/ticket-stocks">Ticket Stocks</a>
       </div>
       <div class="sidebar-item">
         <a href="/admin/settings">Settings</a>
@@ -128,11 +128,11 @@
                   <td>{{.TotalPrice | printf "Rp %.2f"}}</td>
                   <td>
                     <a
-                      href="/admin/update/{{.ID}}"
+                      href="/hudza/admin/update/{{.ID}}"
                       class="btn btn-sm btn-warning"
                       >Edit</a
                     >
-                    <form action="/admin/delete/{{.ID}}" method="post" style="display:inline;">
+                    <form action="/hudza/admin/delete/{{.ID}}" method="post" style="display:inline;">
                       <input type="hidden" name="_method" value="DELETE">
                       <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                     </form>
