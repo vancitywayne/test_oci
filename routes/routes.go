@@ -8,8 +8,8 @@ import (
 
 func RegisterRoutes() *mux.Router {
     r := mux.NewRouter()
-    r.HandleFunc("/hudza/", handlers.LoginHandler).Methods("GET", "POST")
-    r.HandleFunc("/hudza/signup", handlers.SignupHandler).Methods("GET", "POST")
+    r.HandleFunc("/", handlers.LoginHandler).Methods("GET", "POST")
+    r.HandleFunc("/signup", handlers.SignupHandler).Methods("GET", "POST")
     r.HandleFunc("/form.html", handlers.FormHandler).Methods("GET")
     r.HandleFunc("/book", handlers.BookTicketHandler).Methods("POST")
     r.HandleFunc("/admin/dashboard", handlers.AdminDashboardHandler).Methods("GET")
